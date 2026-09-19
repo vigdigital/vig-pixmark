@@ -1,0 +1,6 @@
+# runtime state — server tự ghi, không commit/deploy đè
+count.txt
+# macOS junk
+.DS_Store
+Icon?
+._*

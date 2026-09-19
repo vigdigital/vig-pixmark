@@ -1,0 +1,669 @@
+<!doctype html>
+<!--
+  ╔══════════════════════════════════════════════════════════════╗
+  ║  PixMark — Đóng dấu watermark lên ảnh, của VIG Digital         ║
+  ║  Website : https://vigdigital.com                             ║
+  ║  Tool    : https://tools.vigdigital.com/pixmark               ║
+  ║  Nguồn   : https://github.com/vigdigital/vig-pixmark          ║
+  ║  Bạn được tự do dùng lại (MIT) — vui lòng GIỮ dòng ghi nguồn. ║
+  ║  © VIG Digital.                                               ║
+  ╚══════════════════════════════════════════════════════════════╝
+-->
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- GA4 (chung mọi tool) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BGH49D7XMW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-BGH49D7XMW');
+</script>
+<title>Chèn watermark online miễn phí — đóng dấu ảnh, chống lấy cắp | PixMark</title>
+<meta name="description" content="Đóng dấu watermark chữ lên ảnh (JPG, PNG, WebP): chữ ký, thương hiệu, hoặc lặp kín chống lấy cắp. Chọn vị trí, độ mờ, cỡ chữ; xử lý hàng loạt. Xử lý ngay trên trình duyệt — không upload. Kèm nén nhẹ cho web. Miễn phí. PixMark by VIG Digital.">
+<meta name="author" content="VIG Digital — https://vigdigital.com">
+<meta name="generator" content="PixMark by VIG Digital — https://github.com/vigdigital/vig-pixmark">
+<link rel="canonical" href="https://tools.vigdigital.com/pixmark/">
+
+<!-- Open Graph (Facebook, Zalo, LinkedIn…) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VIG Tools">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:url" content="https://tools.vigdigital.com/pixmark/">
+<meta property="og:title" content="Chèn watermark online miễn phí — đóng dấu ảnh, chống lấy cắp | PixMark">
+<meta property="og:description" content="Đóng dấu chữ ký / thương hiệu lên ảnh, hoặc watermark lặp kín chống lấy cắp. Chọn vị trí, độ mờ, cỡ chữ; xử lý hàng loạt. Ngay trên trình duyệt — không upload.">
+<meta property="og:image" content="https://tools.vigdigital.com/pixmark/assets/og-cover.png">
+<meta property="og:image:secure_url" content="https://tools.vigdigital.com/pixmark/assets/og-cover.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="PixMark — chèn watermark, đóng dấu bản quyền lên ảnh online.">
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Chèn watermark online miễn phí — đóng dấu ảnh, chống lấy cắp | PixMark">
+<meta name="twitter:description" content="Đóng dấu chữ ký / thương hiệu lên ảnh, hoặc watermark lặp kín chống lấy cắp. Ngay trên trình duyệt — không upload.">
+<meta name="twitter:image" content="https://tools.vigdigital.com/pixmark/assets/og-cover.png">
+<meta name="twitter:image:alt" content="PixMark — chèn watermark, đóng dấu bản quyền lên ảnh online.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+
+<!-- Shared design system: tokens + header + footer (light-only) -->
+<link rel="stylesheet" href="/shared/vig-tools.css">
+<style>
+/* Tokens, reset, body, header & footer đến từ /shared/vig-tools.css (light-only). */
+.wrap{max-width:920px;margin:0 auto;padding:26px 20px 8px}
+a{color:var(--brand)}
+.mono{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+h1,h2,h3{font-family:"Fraunces",Georgia,serif;letter-spacing:-.01em}
+
+
+/* Hero */
+.hero{margin-bottom:26px}
+.hero h2{font-size:33px;font-weight:600;margin:0 0 10px;line-height:1.12}
+.hero h2 em{font-style:italic;color:var(--brand)}
+.hero p{font-size:16.5px;color:var(--muted);margin:0;max-width:620px}
+.perks{list-style:none;margin:20px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:11px 30px;max-width:640px}
+.perks li{display:flex;align-items:center;gap:9px;font-size:15px;color:var(--ink)}
+.perks li svg{width:18px;height:18px;color:var(--brand);flex:none}
+.perks li b{font-weight:600}
+@media(max-width:560px){.perks{grid-template-columns:1fr;gap:10px}}
+.stat-processed{margin-top:12px;font-size:13.5px;color:var(--muted)}
+.stat-processed b{color:var(--brand);font-weight:700;font-variant-numeric:tabular-nums}
+
+/* Dropzone */
+.drop{margin-top:22px;border:2px dashed var(--hairline-strong);border-radius:var(--radius);background:var(--surface);padding:44px 24px;text-align:center;cursor:pointer;transition:.18s}
+.drop:hover,.drop.over{border-color:var(--brand);background:var(--brand-soft)}
+.drop .di{width:54px;height:54px;margin:0 auto 14px;border-radius:14px;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center}
+.drop .di svg{width:27px;height:27px}
+.drop b{font-size:17px;font-weight:600}
+.drop .hint{color:var(--faint);font-size:13.5px;margin-top:6px}
+
+/* Controls */
+.controls{display:none;margin-top:18px;background:var(--surface);border:1px solid var(--hairline);border-radius:var(--radius);padding:16px 18px;gap:22px;flex-wrap:wrap;align-items:center}
+.controls.show{display:flex}
+.ctl{display:flex;flex-direction:column;gap:6px}
+.ctl label{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.seg{display:inline-flex;border:1px solid var(--hairline-strong);border-radius:9px;overflow:hidden}
+.seg button{border:none;background:var(--surface);color:var(--muted);padding:7px 13px;font-size:13.5px;font-weight:500;cursor:pointer;font-family:inherit}
+.seg button.on{background:var(--brand);color:#fff}
+.rangewrap{display:flex;align-items:center;gap:10px}
+.rangewrap input[type=range]{width:130px;accent-color:var(--brand)}
+.rangewrap .val{font-size:13px;min-width:34px;color:var(--ink)}
+.chk{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--ink);cursor:pointer}
+.chk input{width:16px;height:16px;accent-color:var(--brand)}
+/* Watermark panel */
+.wm-panel{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:12px}
+.wm-panel .mini{font-size:12.5px;color:var(--muted)}
+.wm-text{font-family:inherit;font-size:14px;padding:8px 11px;border:1px solid var(--hairline-strong);border-radius:8px;background:var(--surface);color:var(--ink);min-width:190px}
+.wm-grid{display:grid;grid-template-columns:repeat(3,15px);grid-auto-rows:15px;gap:3px}
+.wm-grid button{border:1px solid var(--hairline-strong);background:var(--surface);border-radius:4px;cursor:pointer;padding:0;width:15px;height:15px}
+.wm-grid button.on{background:var(--brand);border-color:var(--brand)}
+.wm-grid button:hover{border-color:var(--brand)}
+/* Stage headings + watermark section (Giai đoạn 2) */
+.stage-head{display:flex;align-items:center;gap:10px;margin:26px 0 10px}
+.stage-head .num{width:24px;height:24px;border-radius:50%;background:var(--brand);color:#fff;font-size:13px;font-weight:700;display:grid;place-items:center;flex:none}
+.stage-head h3{font-size:18px;margin:0}
+.stage-head .mini{font-weight:400;color:var(--muted);font-size:13.5px}
+.wm-section{background:var(--surface);border:1px solid var(--hairline);border-radius:var(--radius);padding:16px 18px}
+.wm-section>.chk{font-size:15px;font-weight:600}
+.wm-section .wm-panel{margin-top:12px;padding-top:14px;border-top:1px dashed var(--hairline-strong)}
+
+/* Summary */
+.summary{display:none;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:18px;padding:16px 18px;background:linear-gradient(150deg,var(--brand),var(--brand-bright));color:#fff;border-radius:var(--radius)}
+.summary.show{display:flex}
+.summary .s-num{font-family:"Fraunces",serif;font-size:26px;font-weight:600;line-height:1}
+.summary .s-lbl{font-size:12.5px;opacity:.85;margin-top:3px}
+.summary .s-stats{display:flex;gap:26px}
+.btn{border:none;border-radius:10px;padding:10px 18px;font-size:14.5px;font-weight:600;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:8px;transition:.15s}
+.btn svg{width:16px;height:16px}
+.btn-light{background:#fff;color:var(--brand)}
+.btn-light:hover{transform:translateY(-1px)}
+.btn-ghost{background:transparent;border:1px solid var(--hairline-strong);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--brand);color:var(--brand)}
+.btn:disabled{opacity:.5;cursor:default;transform:none}
+
+/* Results */
+.results{margin-top:16px;display:flex;flex-direction:column;gap:10px}
+.card{display:flex;flex-direction:column;gap:12px;background:var(--surface);border:1px solid var(--hairline);border-radius:var(--radius);padding:14px}
+.card-head{display:flex;align-items:center;gap:14px}
+.card .preview{width:100%;background:var(--surface-2);border:1px solid var(--hairline);border-radius:10px;min-height:110px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.card .preview img{max-width:100%;max-height:70vh;display:block;object-fit:contain}
+.card.working .preview{opacity:.55}
+.card .meta{flex:1;min-width:0}
+.card .fn{font-size:14.5px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card .szline{font-size:13px;color:var(--muted);margin-top:3px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.card .arrow{color:var(--faint)}
+.card .newsz{color:var(--ink);font-weight:600}
+.badge{padding:2px 9px;border-radius:999px;font-size:12px;font-weight:600}
+.badge.save{background:var(--success-soft);color:var(--success)}
+.badge.same{background:var(--warn-soft);color:var(--warn)}
+.badge.fmt{background:var(--brand-soft);color:var(--brand)}
+.card .acts{display:flex;gap:6px;flex:none;flex-wrap:wrap;justify-content:flex-end;max-width:230px}
+.icon-btn{width:34px;height:34px;border-radius:9px;border:1px solid var(--hairline-strong);background:var(--surface);color:var(--muted);cursor:pointer;display:grid;place-items:center;transition:.15s}
+.icon-btn:hover{border-color:var(--brand);color:var(--brand)}
+.icon-btn svg{width:16px;height:16px}
+.card.working .acts{opacity:.4;pointer-events:none}
+.spin{width:16px;height:16px;border:2px solid var(--hairline-strong);border-top-color:var(--brand);border-radius:50%;animation:sp .7s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+.err-row{font-size:12.5px;color:var(--danger)}
+
+/* Compare modal */
+.modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:20px}
+.modal.show{display:flex}
+.modal .ov{position:absolute;inset:0;background:rgba(20,17,11,.6);backdrop-filter:blur(3px)}
+.modal .box{position:relative;background:var(--surface);border-radius:var(--radius);max-width:760px;width:100%;padding:20px;box-shadow:var(--shadow);z-index:1}
+.modal h3{margin:0 0 4px;font-size:19px}
+.modal .csub{font-size:13px;color:var(--muted);margin-bottom:14px}
+.cmp{position:relative;width:100%;border-radius:10px;overflow:hidden;user-select:none;background:var(--surface-2);border:1px solid var(--hairline)}
+.cmp img{display:block;width:100%;pointer-events:none}
+.cmp .after{position:absolute;inset:0;overflow:hidden}
+.cmp .after img{position:absolute;top:0;left:0;max-width:none}
+.cmp .handle{position:absolute;top:0;bottom:0;width:2px;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.15);cursor:ew-resize}
+.cmp .handle::after{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:34px;height:34px;border-radius:50%;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.cmp .tag{position:absolute;top:10px;font-size:11px;font-weight:600;padding:3px 9px;border-radius:999px;background:rgba(20,17,11,.6);color:#fff}
+.cmp .tag.l{left:10px}.cmp .tag.r{right:10px}
+.modal .close{position:absolute;top:12px;right:14px;font-size:26px;line-height:1;color:var(--faint);cursor:pointer;background:none;border:none}
+
+/* CTA */
+.btn-brand{background:var(--brand);color:#fff}
+.btn-brand:hover{background:var(--brand-bright);transform:translateY(-1px)}
+
+/* Notice + footer */
+.notice{margin-top:14px;font-size:13px;color:var(--warn);background:var(--warn-soft);border-radius:9px;padding:10px 13px;display:none}
+.notice.show{display:block}
+@media (max-width:560px){.hero h2{font-size:27px}.summary .s-stats{gap:18px}}
+
+/* Header brand (PixMark · by VIG Digital · Star) — override logo shared */
+.hb-left{display:flex;align-items:center;gap:11px}
+.vig-header-brand .hb-name{font-family:"Fraunces",Georgia,serif;font-size:19px;font-weight:600;letter-spacing:-.01em;color:var(--ink)}
+.vig-header-brand .hb-by{font-size:12.5px;color:var(--muted);font-weight:400}
+.hb-sep{width:1px;height:16px;background:var(--hairline-strong);flex:none}
+.hb-star{display:flex;align-items:center;gap:11px;line-height:0}
+@media (max-width:560px){ .vig-header-brand .hb-by{display:none} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <section class="hero">
+    <h2>Đóng dấu <em>watermark</em> lên ảnh — bảo vệ bản quyền</h2>
+    <p>Kéo ảnh vào, thêm chữ ký / thương hiệu rồi tải về ngay. Đóng dấu ở 1 vị trí hoặc lặp kín chống lấy cắp — xử lý ngay trên trình duyệt, <b>không upload</b>. Kèm nén nhẹ để đăng web. Miễn phí, không giới hạn.</p>
+    <ul class="perks">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><b>Đóng dấu chữ ký / thương hiệu</b></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><b>Lặp kín chống lấy cắp ảnh</b></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><b>Chọn vị trí, độ mờ, cỡ chữ</b></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><b>Xử lý hàng loạt, tải về .zip</b></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><b>Không upload — ngay trên trình duyệt</b></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><b>Kèm nén nhẹ cho web</b></li>
+    </ul>
+    <div class="stat-processed" id="statProcessed" hidden>🔖 Đã đóng dấu <b id="statNum">0</b> ảnh</div>
+  </section>
+
+  <div class="drop" id="drop">
+    <input type="file" id="file" accept="image/jpeg,image/png,image/webp" multiple hidden>
+    <div class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4M12 4l-4 4M12 4l4 4"/><path d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2"/></svg></div>
+    <b>Kéo & thả ảnh vào đây</b>
+    <div class="hint">hoặc bấm để chọn · JPG / PNG / WebP · tối đa <span id="limFiles">20</span> ảnh, ≤ <span id="limSize">25</span>MB/ảnh</div>
+  </div>
+  <div style="text-align:center;margin-top:12px"><button class="btn btn-ghost" id="sampleBtn">Chưa có ảnh? Thử ảnh mẫu →</button></div>
+  <div class="notice" id="notice"></div>
+
+  <div class="stage-head" id="stage1Head" hidden><span class="num">1</span><h3>Chèn watermark <span class="mini">— chữ ký / thương hiệu lên ảnh</span></h3></div>
+  <section class="wm-section" id="wmSection" hidden>
+    <label class="chk"><input type="checkbox" id="wmOn" checked> <span>Đóng dấu watermark chữ lên ảnh</span></label>
+    <div class="wm-panel" id="wmPanel">
+      <input type="text" class="wm-text" id="wmText" placeholder="© Tên của bạn" maxlength="60">
+      <div class="seg" id="wmMode">
+        <button data-v="single" class="on">1 vị trí</button>
+        <button data-v="tile">Lặp kín ⤢</button>
+      </div>
+      <div class="wm-grid" id="wmGrid" title="Vị trí watermark">
+        <button data-p="tl" aria-label="trên trái"></button><button data-p="tc" aria-label="trên giữa"></button><button data-p="tr" aria-label="trên phải"></button>
+        <button data-p="ml" aria-label="giữa trái"></button><button data-p="mc" aria-label="chính giữa"></button><button data-p="mr" aria-label="giữa phải"></button>
+        <button data-p="bl" aria-label="dưới trái"></button><button data-p="bc" aria-label="dưới giữa"></button><button data-p="br" class="on" aria-label="dưới phải"></button>
+      </div>
+      <div class="seg" id="wmColor">
+        <button data-v="light" class="on">Trắng</button>
+        <button data-v="dark">Đen</button>
+        <button data-v="brand">Hồng</button>
+      </div>
+      <div class="rangewrap"><span class="mini">Độ mờ</span><input type="range" id="wmOpacity" min="5" max="100" value="40"><span class="val mono" id="wmOpacityV">40%</span></div>
+      <div class="rangewrap"><span class="mini">Cỡ</span><input type="range" id="wmSize" min="2" max="14" value="6"><span class="val mono" id="wmSizeV">6%</span></div>
+    </div>
+  </section>
+
+  <div class="results" id="results"></div>
+
+  <div class="stage-head" id="stage2Head" hidden><span class="num">2</span><h3>Tối ưu khi tải về <span class="mini">— nén nhẹ cho web (tuỳ chọn)</span></h3></div>
+  <div class="controls" id="controls">
+    <div class="ctl">
+      <label>Định dạng xuất</label>
+      <div class="seg" id="fmt">
+        <button data-v="auto" class="on">Tự động</button>
+        <button data-v="keep">Giữ gốc</button>
+        <button data-v="webp">WebP</button>
+      </div>
+    </div>
+    <div class="ctl">
+      <label>Chất lượng</label>
+      <div class="rangewrap"><input type="range" id="q" min="40" max="95" value="80"><span class="val mono" id="qv">80</span></div>
+    </div>
+    <div class="ctl">
+      <label>Thu nhỏ tối đa</label>
+      <label class="chk"><input type="checkbox" id="resize" checked> <span>Bề ngang ≤ <input type="number" id="maxw" value="2000" min="200" max="8000" style="width:64px;font-family:inherit;padding:3px 5px;border:1px solid var(--hairline-strong);border-radius:6px;background:var(--surface);color:var(--ink)"> px</span></label>
+    </div>
+    <div class="ctl" style="margin-left:auto">
+      <label>&nbsp;</label>
+      <button class="btn btn-ghost" id="reoptimize">Cập nhật</button>
+    </div>
+  </div>
+
+  <div class="summary" id="summary">
+    <div class="s-stats">
+      <div><div class="s-num" id="sSaved">—</div><div class="s-lbl">Đã tiết kiệm</div></div>
+      <div><div class="s-num" id="sPct">—</div><div class="s-lbl">Trung bình giảm</div></div>
+      <div><div class="s-num" id="sCount">—</div><div class="s-lbl">Ảnh đã xử lý</div></div>
+    </div>
+    <button class="btn btn-light" id="dlAll"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M12 15l-4-4M12 15l4-4"/><path d="M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2"/></svg> Tải tất cả (.zip)</button>
+  </div>
+</div>
+
+<!-- Compare modal -->
+<div class="modal" id="modal">
+  <div class="ov" data-close></div>
+  <div class="box">
+    <button class="close" data-close aria-label="Đóng">&times;</button>
+    <h3>So sánh trước / sau</h3>
+    <div class="csub" id="cmpSub"></div>
+    <div class="cmp" id="cmp">
+      <img id="cmpBase" alt="">
+      <div class="after" id="cmpAfterWrap"><img id="cmpAfter" alt=""></div>
+      <div class="handle" id="cmpHandle" style="left:50%"></div>
+      <span class="tag l">Gốc</span><span class="tag r">Đã nén</span>
+    </div>
+  </div>
+</div>
+
+<script type="module">
+/* =========================================================================
+ * PixMark — đóng dấu watermark lên ảnh, của VIG Digital.
+ * Website: https://vigdigital.com · Nguồn: github.com/vigdigital/vig-pixmark
+ * Dùng lại tự do (MIT) — vui lòng giữ dòng ghi nguồn này. © VIG Digital.
+ * ========================================================================= */
+try{
+  console.log('%cPixMark%c by VIG Digital','background:#C4275D;color:#fff;font-weight:700;padding:3px 8px;border-radius:5px','color:#C4275D;font-weight:600;margin-left:6px');
+  console.log('Đóng dấu watermark lên ảnh · https://vigdigital.com · Mã nguồn: https://github.com/vigdigital/vig-pixmark');
+}catch(e){}
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+
+/* ---------- Counter "Đã xử lý N ảnh" (toàn cục — count.php + count.txt) ---------- */
+function showCount(n){const el=$('#statProcessed');if(!el||typeof n!=='number')return;if(n>0){$('#statNum').textContent=n.toLocaleString('vi-VN');el.hidden=false;}}
+(async function(){try{const r=await fetch('count.php',{cache:'no-store'});showCount((await r.json()).count);}catch(e){}})();
+async function countHit(n){try{const r=await fetch('count.php?hit='+n,{cache:'no-store'});showCount((await r.json()).count);}catch(e){}}
+
+/* ---------- Limits (chống quá tải trình duyệt) ---------- */
+const LIMITS={files:20,perFile:25*1024*1024,total:100*1024*1024,megapixel:50*1e6};
+$('#limFiles').textContent=LIMITS.files;
+$('#limSize').textContent=Math.round(LIMITS.perFile/1048576);
+
+/* ---------- Codec loader (jSquash WASM, lazy từ CDN) ---------- */
+// Codec self-host (bundle jSquash mozjpeg+webp + .wasm cạnh file) — không phụ thuộc CDN ngoài.
+let _codecs=null;
+async function loadCodecs(){ if(!_codecs) _codecs=await import('./assets/codecs/codecs.js'); return _codecs; }
+async function enc(kind){
+  const c=await loadCodecs();
+  if(kind==='jpeg') return c.encodeJpeg;
+  if(kind==='webp') return c.encodeWebp;
+}
+
+/* ---------- Helpers ---------- */
+const fmtBytes=b=>{if(b<1024)return b+' B';if(b<1048576)return (b/1024).toFixed(0)+' KB';return (b/1048576).toFixed(2)+' MB';};
+function baseName(n){return n.replace(/\.[^.]+$/,'');}
+async function fileToImageData(file){
+  const bmp=await createImageBitmap(file).catch(()=>null);
+  if(!bmp) throw new Error('Không đọc được ảnh');
+  return bmp;
+}
+function renderCanvas(bmp,opts,tf){
+  let w=bmp.width,h=bmp.height;
+  const doResize = opts.resize || w*h>LIMITS.megapixel;
+  if(doResize && opts.maxw>0 && w>opts.maxw){h=Math.round(h*opts.maxw/w);w=opts.maxw;}
+  const rot=((((tf&&tf.rot)||0)%360)+360)%360;
+  const swap=rot===90||rot===270;
+  const cw=swap?h:w, ch=swap?w:h;
+  const c=document.createElement('canvas');c.width=cw;c.height=ch;
+  const ctx=c.getContext('2d');
+  ctx.save();
+  ctx.translate(cw/2,ch/2);
+  if(rot)ctx.rotate(rot*Math.PI/180);
+  ctx.scale((tf&&tf.flipH)?-1:1,(tf&&tf.flipV)?-1:1);
+  ctx.drawImage(bmp,-w/2,-h/2,w,h);
+  ctx.restore();
+  if(opts.wm && opts.wm.on && opts.wm.text.trim()) drawWatermark(ctx,cw,ch,opts.wm);
+  return {imageData:ctx.getImageData(0,0,cw,ch),canvas:c,w:cw,h:ch};
+}
+function drawWatermark(ctx,W,H,wm){
+  const text=wm.text.trim(); if(!text) return;
+  const fontPx=Math.max(11,Math.round(W*(wm.size/100)));
+  ctx.save();
+  ctx.font=`600 ${fontPx}px 'Instrument Sans',system-ui,sans-serif`;
+  ctx.textBaseline='middle';
+  const col=wm.color==='dark'?'0,0,0':wm.color==='brand'?'196,39,93':'255,255,255';
+  ctx.globalAlpha=Math.max(.03,Math.min(1,wm.opacity/100));
+  ctx.fillStyle=`rgb(${col})`;
+  ctx.shadowColor=wm.color==='dark'?'rgba(255,255,255,.5)':'rgba(0,0,0,.45)';
+  ctx.shadowBlur=Math.max(1,Math.round(fontPx*0.1));
+  if(wm.mode==='tile'){
+    ctx.textAlign='center';
+    ctx.translate(W/2,H/2);ctx.rotate(-Math.PI/6);ctx.translate(-W/2,-H/2);
+    const tw=ctx.measureText(text).width;
+    const stepX=tw+fontPx*2.4, stepY=fontPx*3.4, diag=Math.ceil(Math.hypot(W,H));
+    for(let y=-diag;y<diag;y+=stepY) for(let x=-diag;x<diag;x+=stepX) ctx.fillText(text,x,y);
+  }else{
+    const m=Math.round(fontPx*0.85), p=wm.pos||'br';
+    let x=W/2,y=H/2;
+    if(p[1]==='l'){ctx.textAlign='left';x=m;} else if(p[1]==='r'){ctx.textAlign='right';x=W-m;} else {ctx.textAlign='center';x=W/2;}
+    if(p[0]==='t')y=m+fontPx/2; else if(p[0]==='b')y=H-m-fontPx/2; else y=H/2;
+    ctx.fillText(text,x,y);
+  }
+  ctx.restore();
+}
+
+/* ---------- Optimize 1 file ---------- */
+async function optimizeOne(file,opts,tf){
+  const bmp=await fileToImageData(file);
+  const {imageData,w,h}=renderCanvas(bmp,opts,tf);
+  const src=file.type;
+  const q=opts.quality;
+  const candidates=[];
+
+  async function tryJpeg(){const e=await enc('jpeg');const buf=await e(imageData,{quality:q});candidates.push({buf,type:'image/jpeg',ext:'jpg'});}
+  async function tryWebp(){const e=await enc('webp');const buf=await e(imageData,{quality:q});candidates.push({buf,type:'image/webp',ext:'webp'});}
+  async function tryPng(){
+    // Vẽ lại PNG (lossless, tự strip metadata). PNG nén mạnh nhất = chuyển WebP (xem 'auto').
+    const blob=await new Promise(r=>{
+      const c=document.createElement('canvas');c.width=w;c.height=h;c.getContext('2d').putImageData(imageData,0,0);c.toBlob(r,'image/png');
+    });
+    candidates.push({buf:await blob.arrayBuffer(),type:'image/png',ext:'png'});
+  }
+
+  const fmt=opts.format;
+  if(fmt==='webp'){await tryWebp();}
+  else if(fmt==='keep'){
+    if(src==='image/png') await tryPng();
+    else if(src==='image/webp') await tryWebp();
+    else await tryJpeg();
+  }else{ // auto: thử webp + định dạng gốc, chọn nhỏ nhất
+    await tryWebp();
+    if(src==='image/png') await tryPng(); else await tryJpeg();
+  }
+
+  // chọn ứng viên nhỏ nhất
+  let best=candidates.sort((a,b)=>a.buf.byteLength-b.buf.byteLength)[0];
+  // không bao giờ phình to: nếu lớn hơn gốc và giữ nguyên định dạng gốc được → giữ gốc
+  const origBuf=await file.arrayBuffer();
+  if(best.buf.byteLength>=origBuf.byteLength){
+    best={buf:origBuf,type:src,ext:(src.split('/')[1]||'img').replace('jpeg','jpg'),kept:true};
+  }
+  return {best,origSize:origBuf.byteLength,w,h,srcType:src};
+}
+
+/* ---------- State + UI ---------- */
+let items=[]; // {file,el,result,url,baseUrl}
+const results=$('#results');
+
+function opts(){
+  return {
+    format:$('#fmt .on').dataset.v,
+    quality:+$('#q').value,
+    resize:$('#resize').checked,
+    maxw:+$('#maxw').value||2000,
+    wm:wmConfig(),
+  };
+}
+function wmConfig(){
+  const g=$('#wmGrid button.on');
+  return {
+    on:$('#wmOn').checked,
+    text:$('#wmText').value||'',
+    mode:($('#wmMode .on')||{}).dataset?.v||'single',
+    pos:g?g.dataset.p:'br',
+    color:($('#wmColor .on')||{}).dataset?.v||'light',
+    opacity:+$('#wmOpacity').value,
+    size:+$('#wmSize').value,
+  };
+}
+function showNotice(msg){const n=$('#notice');n.textContent=msg;n.classList.add('show');setTimeout(()=>n.classList.remove('show'),6000);}
+
+function accept(files){
+  const imgs=[...files].filter(f=>/^image\/(jpeg|png|webp)$/.test(f.type));
+  if(!imgs.length){showNotice('Chỉ nhận ảnh JPG, PNG hoặc WebP.');return;}
+  let msgs=[];
+  let list=imgs;
+  if(items.length+list.length>LIMITS.files){msgs.push(`Tối đa ${LIMITS.files} ảnh/lượt — đã lấy ${LIMITS.files-items.length} ảnh đầu.`);list=list.slice(0,LIMITS.files-items.length);}
+  const okList=[];let total=items.reduce((s,i)=>s+i.file.size,0);
+  for(const f of list){
+    if(f.size>LIMITS.perFile){msgs.push(`"${f.name}" > ${Math.round(LIMITS.perFile/1048576)}MB — bỏ qua.`);continue;}
+    if(total+f.size>LIMITS.total){msgs.push(`Vượt tổng ${Math.round(LIMITS.total/1048576)}MB/lượt — dừng ở đây.`);break;}
+    total+=f.size;okList.push(f);
+  }
+  if(msgs.length)showNotice(msgs.join(' '));
+  if(!okList.length)return;
+  $('#controls').classList.add('show');
+  $('#stage1Head').hidden=false;
+  $('#stage2Head').hidden=false;
+  $('#wmSection').hidden=false;
+  okList.forEach(addItem);
+  countHit(okList.length);   // thả ảnh vào là đếm (toàn cục)
+  runQueue();
+}
+
+function addItem(file){
+  const el=document.createElement('div');el.className='card working';
+  el.innerHTML=`<div class="card-head">
+    <div class="meta"><div class="fn"></div>
+      <div class="szline"><span class="orig"></span><span class="arrow">→</span><span class="proc"><span class="spin"></span></span></div></div>
+    <div class="acts">
+      <button class="icon-btn rl-btn" title="Xoay trái"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.5 15a9 9 0 1 0 2.1-9.4L1 10"/></svg></button>
+      <button class="icon-btn rr-btn" title="Xoay phải"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.5 15a9 9 0 1 1-2.1-9.4L23 10"/></svg></button>
+      <button class="icon-btn fh-btn" title="Lật ngang"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3"/><path d="M16 4h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3"/><path d="M12 2v20"/></svg></button>
+      <button class="icon-btn fv-btn" title="Lật dọc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 8V5a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v3"/><path d="M20 16v3a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-3"/><path d="M2 12h20"/></svg></button>
+      <button class="icon-btn cmp-btn" title="So sánh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M5 8l-3 4 3 4M19 8l3 4-3 4"/></svg></button>
+      <button class="icon-btn dl-btn" title="Tải"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M12 15l-4-4M12 15l4-4"/><path d="M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2"/></svg></button>
+    </div>
+  </div>
+  <div class="preview"><img class="thumb" alt="" loading="lazy"></div>`;
+  el.querySelector('.fn').textContent=file.name;
+  el.querySelector('.orig').textContent=fmtBytes(file.size);
+  results.appendChild(el);
+  const it={file,el,result:null,url:null,pending:true,baseUrl:URL.createObjectURL(file),tf:{rot:0,flipH:false,flipV:false}};
+  el.querySelector('.thumb').src=it.baseUrl;
+  items.push(it);
+  el.querySelector('.cmp-btn').onclick=()=>openCompare(it);
+  el.querySelector('.dl-btn').onclick=()=>download(it);
+  el.querySelector('.rl-btn').onclick=()=>{it.tf.rot=(it.tf.rot+270)%360;reprocessOne(it);};
+  el.querySelector('.rr-btn').onclick=()=>{it.tf.rot=(it.tf.rot+90)%360;reprocessOne(it);};
+  el.querySelector('.fh-btn').onclick=()=>{it.tf.flipH=!it.tf.flipH;reprocessOne(it);};
+  el.querySelector('.fv-btn').onclick=()=>{it.tf.flipV=!it.tf.flipV;reprocessOne(it);};
+}
+
+let running=false;
+async function runQueue(){
+  if(running)return;
+  running=true;
+  let any=true;
+  while(any){
+    any=false;
+    for(const it of items){
+      if(it.pending){ it.pending=false; any=true; await process(it); }
+    }
+  }
+  running=false;updateSummary();
+}
+async function process(it){
+  it.el.classList.add('working');
+  const proc=it.el.querySelector('.proc');
+  try{
+    const r=await optimizeOne(it.file,opts(),it.tf);
+    it.result=r;
+    if(it.url)URL.revokeObjectURL(it.url);
+    it.blob=new Blob([r.best.buf],{type:r.best.type});
+    it.url=URL.createObjectURL(it.blob);
+    it.el.querySelector('.thumb').src=it.url;
+    const pct=Math.max(0,Math.round((1-r.best.buf.byteLength/r.origSize)*100));
+    const fmtChanged=r.best.type!==r.srcType;
+    proc.innerHTML=`<span class="newsz">${fmtBytes(r.best.buf.byteLength)}</span>`
+      +(r.best.kept?` <span class="badge same">đã tối ưu sẵn</span>`:` <span class="badge save">-${pct}%</span>`)
+      +(fmtChanged?` <span class="badge fmt">${r.best.ext.toUpperCase()}</span>`:'');
+  }catch(e){
+    proc.innerHTML=`<span class="err-row">Lỗi: ${e.message||e}</span>`;
+  }
+  it.el.classList.remove('working');
+}
+
+function updateSummary(){
+  const done=items.filter(i=>i.result);
+  if(!done.length){$('#summary').classList.remove('show');return;}
+  let o=0,n=0;done.forEach(i=>{o+=i.result.origSize;n+=i.result.best.buf.byteLength;});
+  $('#sSaved').textContent=fmtBytes(Math.max(0,o-n));
+  $('#sPct').textContent=(o?Math.round((1-n/o)*100):0)+'%';
+  $('#sCount').textContent=done.length;
+  $('#summary').classList.add('show');
+}
+
+/* ---------- Download ---------- */
+// GA4: đo lượt chuyển đổi = bấm tải về. Event 'download' (đánh dấu Key event trong GA4).
+function trackDownload(method,format,count){
+  try{ if(typeof gtag==='function') gtag('event','download',{method:method,file_format:format,image_count:count||1}); }catch(e){}
+}
+function download(it){
+  if(!it.result)return;
+  const a=document.createElement('a');a.href=it.url;
+  a.download=baseName(it.file.name)+'.'+it.result.best.ext;
+  document.body.appendChild(a);a.click();a.remove();
+  trackDownload('single',it.result.best.ext,1);
+}
+$('#dlAll').onclick=async()=>{
+  const done=items.filter(i=>i.result);if(!done.length)return;
+  const btn=$('#dlAll');btn.disabled=true;
+  try{
+    if(!window.JSZip){await new Promise((res,rej)=>{const s=document.createElement('script');s.src='assets/jszip.min.js';s.onload=res;s.onerror=rej;document.head.appendChild(s);});}
+    const zip=new window.JSZip();const used={};
+    for(const it of done){
+      let name=baseName(it.file.name)+'.'+it.result.best.ext;
+      if(used[name]){name=baseName(it.file.name)+'-'+(used[name]++)+'.'+it.result.best.ext;}else used[name]=1;
+      zip.file(name,it.blob);
+    }
+    const blob=await zip.generateAsync({type:'blob'});
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement('a');a.href=url;
+    a.download='pixmark.zip';document.body.appendChild(a);a.click();a.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),4000);
+    trackDownload('zip','zip',done.length);
+  }catch(e){showNotice('Không tạo được .zip: '+(e.message||e));}
+  btn.disabled=false;
+};
+
+/* ---------- Compare slider ---------- */
+const modal=$('#modal');
+function openCompare(it){
+  if(!it.result)return;
+  $('#cmpBase').src=it.baseUrl;$('#cmpAfter').src=it.url;
+  $('#cmpSub').textContent=`${it.file.name} · ${fmtBytes(it.result.origSize)} → ${fmtBytes(it.result.best.buf.byteLength)}`;
+  modal.classList.add('show');setHandle(50);
+}
+function setHandle(pct){$('#cmpHandle').style.left=pct+'%';$('#cmpAfterWrap').style.width=pct+'%';
+  const img=$('#cmpAfter');img.style.width=$('#cmp').clientWidth+'px';}
+$$('[data-close]').forEach(e=>e.onclick=()=>modal.classList.remove('show'));
+(function(){let drag=false;const cmp=$('#cmp');
+  const move=x=>{const r=cmp.getBoundingClientRect();setHandle(Math.max(0,Math.min(100,(x-r.left)/r.width*100)));};
+  $('#cmpHandle').addEventListener('pointerdown',()=>drag=true);
+  window.addEventListener('pointerup',()=>drag=false);
+  window.addEventListener('pointermove',e=>{if(drag)move(e.clientX);});
+  cmp.addEventListener('click',e=>move(e.clientX));
+})();
+
+/* ---------- Re-optimize on control change ---------- */
+$('#reoptimize').onclick=()=>{items.forEach(i=>{i.pending=true;i.el.querySelector('.proc').innerHTML='<span class="spin"></span>';});runQueue();};
+$('#fmt').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;$$('#fmt button').forEach(x=>x.classList.remove('on'));b.classList.add('on');});
+$('#q').addEventListener('input',()=>$('#qv').textContent=$('#q').value);
+
+/* ---------- Xoay/lật 1 ảnh ---------- */
+function reprocessOne(it){
+  it.pending=true;
+  it.el.classList.add('working');
+  it.el.querySelector('.proc').innerHTML='<span class="spin"></span>';
+  runQueue();
+}
+
+/* ---------- Watermark controls ---------- */
+const wmPanel=$('#wmPanel');
+function wmRerunAll(){ if(!items.length)return; items.forEach(i=>{i.pending=true;i.el.querySelector('.proc').innerHTML='<span class="spin"></span>';}); runQueue(); }
+function wmSave(){ try{ localStorage.setItem('pixopt_wm', JSON.stringify(wmConfig())); }catch(e){} }
+function wmApply(){ wmSave(); if($('#wmOn').checked) wmRerunAll(); }
+function segPick(sel,b){ $$(sel+' button').forEach(x=>x.classList.remove('on')); b.classList.add('on'); }
+function wmTileState(){ const tile=($('#wmMode .on')||{}).dataset?.v==='tile'; $('#wmGrid').style.opacity=tile?'.3':'1'; $('#wmGrid').style.pointerEvents=tile?'none':'auto'; }
+$('#wmOn').addEventListener('change',()=>{ wmPanel.hidden=!$('#wmOn').checked; wmSave(); wmRerunAll(); });
+$('#wmText').addEventListener('change',wmApply);
+$('#wmMode').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;segPick('#wmMode',b);wmTileState();wmApply();});
+$('#wmGrid').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;segPick('#wmGrid',b);wmApply();});
+$('#wmColor').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;segPick('#wmColor',b);wmApply();});
+$('#wmOpacity').addEventListener('input',()=>$('#wmOpacityV').textContent=$('#wmOpacity').value+'%');
+$('#wmOpacity').addEventListener('change',wmApply);
+$('#wmSize').addEventListener('input',()=>$('#wmSizeV').textContent=$('#wmSize').value+'%');
+$('#wmSize').addEventListener('change',wmApply);
+(function restoreWm(){ try{
+  const s=JSON.parse(localStorage.getItem('pixopt_wm')||'null'); if(!s)return;
+  if(s.text!=null)$('#wmText').value=s.text;
+  if(s.opacity){$('#wmOpacity').value=s.opacity;$('#wmOpacityV').textContent=s.opacity+'%';}
+  if(s.size){$('#wmSize').value=s.size;$('#wmSizeV').textContent=s.size+'%';}
+  const setSeg=(sel,v)=>$$(sel+' button').forEach(x=>x.classList.toggle('on',x.dataset.v===v));
+  if(s.mode)setSeg('#wmMode',s.mode);
+  if(s.color)setSeg('#wmColor',s.color);
+  if(s.pos)$$('#wmGrid button').forEach(x=>x.classList.toggle('on',x.dataset.p===s.pos));
+  wmTileState();
+  if(s.on){$('#wmOn').checked=true;wmPanel.hidden=false;}
+}catch(e){} })();
+
+/* ---------- Drop wiring ---------- */
+const drop=$('#drop'),input=$('#file');
+drop.onclick=()=>input.click();
+input.onchange=()=>{accept(input.files);input.value='';};
+['dragenter','dragover'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add('over');}));
+['dragleave','drop'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();if(ev==='drop'){accept(e.dataTransfer.files);}drop.classList.remove('over');}));
+$('#sampleBtn').onclick=async()=>{try{const r=await fetch('assets/sample.jpg?v=2');const b=await r.blob();accept([new File([b],'anh-mau.jpg',{type:'image/jpeg'})]);}catch(e){showNotice('Không tải được ảnh mẫu.');}};
+</script>
+<!-- Shared header & footer (tự inject) -->
+<script src="/shared/vig-tools.js" defer></script>
+<script>
+/* Header brand + GitHub Star (như PixClean) — chèn sau khi shared header đã render */
+document.addEventListener('DOMContentLoaded', function () {
+  var inner = document.querySelector('.vig-header .vig-header-inner');
+  var brand = document.querySelector('.vig-header .vig-header-brand');
+  if (!inner || !brand) return;
+  brand.innerHTML =
+    '<div class="vig-header-mark" style="background:linear-gradient(150deg,#14B8A6,#0D9488)" aria-hidden="true">' +
+      '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 22h14"/><path d="M19.27 13.73A2.5 2.5 0 0 0 17.5 13h-11A2.5 2.5 0 0 0 4 15.5V17a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-1.5c0-.66-.26-1.29-.73-1.77Z"/><path d="M14 13V8.5C14 7 15 7 15 5a3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 2 1 2 1 3.5V13"/></svg>' +
+    '</div>' +
+    '<span class="hb-name">PixMark</span><span class="hb-by">by VIG Digital</span>';
+  var left = document.createElement('div');
+  left.className = 'hb-left';
+  inner.insertBefore(left, brand);
+  left.appendChild(brand);
+  var star = document.createElement('span');
+  star.className = 'hb-star';
+  star.innerHTML = '<span class="hb-sep"></span>' +
+    '<a class="github-button" href="https://github.com/vigdigital/vig-pixmark" data-color-scheme="light" data-icon="octicon-star" data-show-count="true" aria-label="Star vigdigital/vig-pixmark on GitHub">Star</a>';
+  left.appendChild(star);
+  var s = document.createElement('script');
+  s.async = true; s.src = 'https://buttons.github.io/buttons.js';
+  document.body.appendChild(s);
+});
+</script>
+</body>
+</html>
