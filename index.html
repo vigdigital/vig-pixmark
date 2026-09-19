@@ -405,9 +405,11 @@ async function optimizeOne(file,opts,tf){
 
   // chọn ứng viên nhỏ nhất
   let best=candidates.sort((a,b)=>a.buf.byteLength-b.buf.byteLength)[0];
-  // không bao giờ phình to: nếu lớn hơn gốc và giữ nguyên định dạng gốc được → giữ gốc
+  // không phình to: nếu output ≥ gốc VÀ không có chỉnh sửa (watermark/xoay/lật) → giữ gốc.
+  // Có chỉnh sửa thì phải dùng ảnh đã render (gốc không có watermark/không xoay).
   const origBuf=await file.arrayBuffer();
-  if(best.buf.byteLength>=origBuf.byteLength){
+  const edited=(opts.wm&&opts.wm.on&&opts.wm.text&&opts.wm.text.trim())||(tf&&(((tf.rot||0)%360)!==0||tf.flipH||tf.flipV));
+  if(!edited && best.buf.byteLength>=origBuf.byteLength){
     best={buf:origBuf,type:src,ext:(src.split('/')[1]||'img').replace('jpeg','jpg'),kept:true};
   }
   return {best,origSize:origBuf.byteLength,w,h,srcType:src};
